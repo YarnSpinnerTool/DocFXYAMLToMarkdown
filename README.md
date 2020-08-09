@@ -2,11 +2,9 @@
 
 Generates Markdown documentation from DocFX YAML metadata files.
 
-This tool was built to convert the DocFX metadata from Yarn Spinner into Markdown files used in the Hugo-powered site [yarnspinner.dev](https://yarnspinner.dev).
+This tool was built to convert the DocFX metadata from [Yarn Spinner](https://github.com/YarnSpinnerTool/YarnSpinner) into Markdown files used in the Hugo-powered site [yarnspinner.dev](https://yarnspinner.dev).
 
-Please note that this is not a general-purpose DocFX-to-Markdown tool. In particular, the generated Markdown may contain references to Hugo shortcodes that are only defined in the Yarn Spinner site. 
-
-This project is released in the hope that others might find it useful.
+Please note that this is not a general-purpose DocFX-to-Markdown tool. In particular, the generated Markdown may contain references to Hugo shortcodes that are only defined in the Yarn Spinner site. This project is released in the hope that others might find it useful; if you build something off this, we'd appreciate it if you [drop us a line](https://twitter.com/YarnSpinnerTool)!
 
 ## Setup
 
