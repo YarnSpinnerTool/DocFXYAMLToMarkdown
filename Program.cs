@@ -713,7 +713,7 @@ namespace DocFXYAMLToMarkdown
 
                 foreach (var item in itemsWithoutSummaries)
                 {
-                    stringBuilder.AppendLine($"* [{item.UID}]({XRef(item)})");
+                    stringBuilder.AppendLine($"* [``{item.UID}``]({XRef(item)})");
                 }
             }
 
@@ -1031,6 +1031,31 @@ namespace DocFXYAMLToMarkdown
 
         public static void GenerateMarkdownForSyntax(Item item, Syntax syntax, StringBuilder stringBuilder, int headerLevel)
         {
+
+            if (syntax.TypeParameters.Count > 0)
+            {
+                stringBuilder.Append(new string('#', headerLevel));
+                stringBuilder.AppendLine(" Type Parameters");
+
+                stringBuilder.AppendLine("|Type Parameter|Description|");
+                stringBuilder.AppendLine("|:---|:---|");
+
+                foreach (var typeParameter in syntax.TypeParameters)
+                {
+                    stringBuilder.Append("|");
+                    stringBuilder.Append($"{typeParameter.ID}");
+                    stringBuilder.Append("|");
+
+                    if (string.IsNullOrEmpty(typeParameter.Description) == false)
+                    {
+                        stringBuilder.Append($"{FormatForTable(FormatCrossReferences(typeParameter.Description))}");
+                    }
+
+                    stringBuilder.Append("|");
+
+                    stringBuilder.AppendLine();
+                }
+            }
 
             if (syntax.Parameters.Count > 0)
             {
@@ -1474,9 +1499,6 @@ namespace DocFXYAMLToMarkdown
 
         public class Syntax
         {
-            public string Content { get; set; }
-            public List<Parameter> Parameters { get; set; } = new List<Parameter>();
-
             public class Parameter
             {
                 [YamlMember(Alias = "id", ApplyNamingConventions = false)]
@@ -1491,11 +1513,20 @@ namespace DocFXYAMLToMarkdown
                 public string Description { get; set; }
             }
 
+            public class TypeParameter {
+                [YamlMember(Alias = "id", ApplyNamingConventions = false)]
+                public string ID { get; set; }
+                public string Description { get; set; }
+            }
 
 
             public ReturnType Return { get; set; }
             public string Remarks { get; set; }
 
+            public string Content { get; set; }
+            public List<Parameter> Parameters { get; set; } = new List<Parameter>();
+
+            public List<TypeParameter> TypeParameters { get; set; } = new List<TypeParameter>();
 
 
 
