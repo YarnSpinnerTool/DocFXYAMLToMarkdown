@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -713,7 +713,7 @@ namespace DocFXYAMLToMarkdown
 
                 foreach (var item in itemsWithoutSummaries)
                 {
-                    stringBuilder.AppendLine($"* [``{item.UID}``]({XRef(item)})");
+                    stringBuilder.AppendLine($"* [`{item.NameWithType}`]({XRef(item)})");
                 }
             }
 
@@ -1154,6 +1154,8 @@ namespace DocFXYAMLToMarkdown
             public ItemType Type { get; set; }
 
             public string Name { get; set; }
+
+            public string NameWithType { get; set; }
 
             public string Summary { get; set; }
             public string Namespace { get; set; }
