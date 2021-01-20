@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -657,7 +657,6 @@ namespace DocFXYAMLToMarkdown
             stringBuilder.AppendLine($"---");
             stringBuilder.AppendLine($"title: API Documentation");
             stringBuilder.AppendLine($"draft: false");
-            stringBuilder.AppendLine($"date: {System.DateTime.UtcNow.ToString("u").Replace(' ', 'T')}");
             stringBuilder.AppendLine($"toc: true");
             stringBuilder.AppendLine($"hide_contents: true");
 
@@ -729,7 +728,6 @@ namespace DocFXYAMLToMarkdown
             stringBuilder.AppendLine($"---");
             stringBuilder.AppendLine($"title: {item.Name} Namespace");
             stringBuilder.AppendLine($"draft: false");
-            stringBuilder.AppendLine($"date: {System.DateTime.UtcNow.ToString("u").Replace(' ', 'T')}");
             stringBuilder.AppendLine($"toc: true");
             stringBuilder.AppendLine($"hide_contents: true");
 
@@ -792,7 +790,6 @@ namespace DocFXYAMLToMarkdown
             stringBuilder.AppendLine($"---");
             stringBuilder.AppendLine($"title: {item.DisplayName} {item.Type}");
             stringBuilder.AppendLine($"draft: false");
-            stringBuilder.AppendLine($"date: {contentDate.ToString("u").Replace(' ', 'T')}");
             stringBuilder.AppendLine($"toc: true");
             stringBuilder.AppendLine($"hide_contents: true");
             stringBuilder.AppendLine($"menu:");
